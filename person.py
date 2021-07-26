@@ -2,10 +2,9 @@
 people에 대한 정보를 기록하고 처리함
 이 클래스들을 테스트하려면 이 파일을 직접 실행하면됨
 """
-
 from classtools import AttrDisplay
 
-class Person:
+class Person(AttrDisplay):
     """
     person의 기록을 생성하고 처리
     """
@@ -19,9 +18,6 @@ class Person:
 
     def giveRaise(self, percent):
         self.pay = int(self.pay * (1 + percent))
-
-    def __repr__(self):
-        return '[Person: %s, %s]' % (self.name, self.pay)
 
 class Manager(Person):
     """
