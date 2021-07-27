@@ -6,3 +6,10 @@ class InstState:
         print('InstState set')
         instance._X = value
 
+# 클라이언트 클래스
+class CalcAttrs:
+    X = InstState()
+    Y = 3
+    def __init__(self):
+        self._X = 2
+        self.Z = 4
