@@ -38,6 +38,6 @@ class Person:
     name = Property(getName, setName)   # property()처럼 사용
 
 x = Person()
-x.name
-x.name = 'Bob'
+x.name                                  # 속성 가져오기 -> Person 클래스에서 Property 클래스의 __get__ 메서드로 라우팅 -> Person 클래스의 getName 메서드로 라우팅
+x.name = 'Bob'                          # 속성 할당하기 -> Person 클래스에서 Property 클래스의 __set__ 메서드로 라우팅 -> Person 클래스의 setName 메서드로 라우팅
 del x.name
