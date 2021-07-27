@@ -17,10 +17,13 @@ class Name:
         print('remove...')
         del instance._name
 
-class Person:
+class Super:
     def __init__(self, name):
         self._name = name
-    name = Name()                           # 디스크립터를 속성에 할당
+    name = Name()
+
+class Person(Super):                        # 클래스 속성으로 디스크립터를 갖고있는 Super를 Person에서 상속(= 클래스 속성 디스크립터 동일하게 적용)
+    pass
 
 bob = Person('Bob Smith')
 print(bob.name)                             # Name.__get__ 실행
