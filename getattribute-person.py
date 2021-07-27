@@ -2,6 +2,12 @@ class Person:
     def __init__(self, name):                           # Person의 생성자
         self._name = name                               # 이곳에서도 마찬가지로 __setattr__ 호출!
 
+    def __getattribute__(self, attr):                   
+        print('get: ' + attr)
+        if attr == 'name':
+            attr = '_name'
+        return object.__getattribute__(self, attr)
+
     def __setattr__(self, attr, value):                 # [obj.any = value] 실행시 호출
         print('set: ' + attr)
         if attr == 'name':
