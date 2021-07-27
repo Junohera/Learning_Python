@@ -2,11 +2,11 @@ class Person:
     def __init__(self, name):                           # Person의 생성자
         self._name = name                               # 이곳에서도 마찬가지로 __setattr__ 호출!
 
-    def __getattribute__(self, attr):                   
+    def __getattribute__(self, attr):                   # 객체의 모든 속성에 대해 동작
         print('get: ' + attr)
-        if attr == 'name':
-            attr = '_name'
-        return object.__getattribute__(self, attr)
+        if attr == 'name':                              # 모든 이름을 가로챔
+            attr = '_name'                              # 내부 이름에 매핑
+        return object.__getattribute__(self, attr)      # 루프 방지
 
     def __setattr__(self, attr, value):                 # [obj.any = value] 실행시 호출
         print('set: ' + attr)
