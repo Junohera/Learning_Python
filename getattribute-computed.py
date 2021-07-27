@@ -4,9 +4,7 @@ class AttrSquare:
     
     def __getattribute__(self, attr):                       # 모든 속성 가져오기를 캐치
         if attr == 'X':
-            return self.value ** 2                          # __getattribute__ 다시 발동되어 호출
-        else:
-            return object.__getattribute__(self, attr)      # object로 접근해 루프 방지
+            return object.__getattribute__(self, 'value') ** 2 # 바로 object의 속성을 접근해 불필요한 재귀적 호출을 제거
 
     def __setattr__(self, attr, value):                     # 모든 속성 할당을 캐치
         if attr == 'X':
